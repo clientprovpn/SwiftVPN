@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SwiftVPN</string>
+
+    <!-- Quick Settings tile -->
+    <string name="tile_label">VPN</string>
+    <string name="tile_pick_profile">Pick a profile</string>
+
+    <!-- Connection states -->
+    <string name="state_connected">Connected</string>
+    <string name="state_connecting">Connecting…</string>
+    <string name="state_disconnected">Disconnected</string>
+    <string name="state_paused">Paused</string>
+    <string name="state_auth_failed">Authentication failed</string>
+    <string name="state_no_network">No network</string>
+    <string name="state_waiting_input">Waiting for input</string>
+
+    <!-- Actions -->
+    <string name="action_connect">Connect</string>
+    <string name="action_disconnect">Disconnect</string>
+    <string name="action_import">Add profile</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_back">Back</string>
+    <string name="action_theme">Theme</string>
+    <string name="action_menu">Menu</string>
+    <string name="action_theme_light">Light theme</string>
+    <string name="action_theme_dark">Dark theme</string>
+    <string name="action_sort">Sort</string>
+    <string name="action_favourite">Favourite</string>
+    <string name="action_clear_log">Clear log</string>
+
+    <!-- Sorting -->
+    <string name="sort_name">Name</string>
+    <string name="sort_recent">Recently used</string>
+    <string name="sort_favourite">Favourites first</string>
+
+    <!-- Tabs -->
+    <string name="tab_status">Status</string>
+    <string name="tab_routing">Routing</string>
+    <string name="tab_log">Log</string>
+    <string name="tab_usage">Usage</string>
+
+    <!-- Status / graph labels -->
+    <string name="label_proxy">Proxy</string>
+    <string name="label_remote_server">Remote server</string>
+    <string name="label_download">Download</string>
+    <string name="label_upload">Upload</string>
+    <string name="label_local_ipv4">Local IPv4</string>
+    <string name="label_local_ipv6">Local IPv6</string>
+    <string name="label_mtu">MTU</string>
+    <string name="label_dns">DNS servers</string>
+    <string name="label_routes">Routes</string>
+    <string name="label_downloaded">Downloaded</string>
+    <string name="label_uploaded">Uploaded</string>
+    <string name="label_uptime">Uptime</string>
+    <string name="label_peak_down">Peak download</string>
+    <string name="label_peak_up">Peak upload</string>
+
+    <!-- Import -->
+    <string name="import_success">Imported “%1$s”</string>
+    <string name="import_failed">Could not read that file as an OpenVPN or WireGuard profile</string>
+
+    <!-- Empty state -->
+    <string name="no_profiles_title">No profiles yet</string>
+    <string name="no_profiles_body">Import an .ovpn file from your device storage to get started. Everything stays on your phone.</string>
+    <!-- Credentials dialog -->
+    <string name="credentials_title">Sign in</string>
+    <string name="credentials_body">“%1$s” needs a username and password.</string>
+    <string name="label_username">Username</string>
+    <string name="label_password">Password</string>
+    <string name="remember_credentials">Remember on this device</string>
+    <string name="action_show_password">Show password</string>
+    <string name="action_hide_password">Hide password</string>
+    <string name="action_cancel">Cancel</string>
+    <!-- Crash report -->
+    <string name="crash_title">The app stopped unexpectedly</string>
+    <string name="crash_body">A report was saved. You can copy it to share, or dismiss it.</string>
+    <string name="action_copy">Copy</string>
+    <string name="action_dismiss">Dismiss</string>
+    <string name="crash_copied">Report copied</string>
+    <!-- Profile settings -->
+    <string name="settings_title">Settings</string>
+    <string name="action_save">Save</string>
+    <string name="action_settings">Edit settings</string>
+    <string name="settings_saved">Settings saved</string>
+    <string name="settings_section_server">SERVER</string>
+    <string name="settings_section_auth">AUTHENTICATION</string>
+    <string name="settings_section_routing">ROUTING</string>
+    <string name="settings_section_dns">DNS</string>
+    <string name="settings_section_tuning">TUNING</string>
+    <string name="settings_name">Profile name</string>
+    <string name="settings_server">Server address</string>
+    <string name="settings_port">Port</string>
+    <string name="settings_protocol">Protocol</string>
+    <string name="settings_timeout">Connect timeout (seconds)</string>
+    <string name="settings_password_saved">A password is saved for this profile.</string>
+    <string name="settings_password_prompt">You will be asked for the password when connecting.</string>
+    <string name="settings_use_pull">Pull settings from server</string>
+    <string name="settings_use_pull_desc">Let the server supply routes, DNS and addresses</string>
+    <string name="settings_default_route">Route all IPv4 traffic</string>
+    <string name="settings_default_route6">Route all IPv6 traffic</string>
+    <string name="settings_custom_routes">Custom routes</string>
+    <string name="settings_override_dns">Override DNS servers</string>
+    <string name="settings_dns1">DNS 1</string>
+    <string name="settings_dns2">DNS 2</string>
+    <string name="settings_search_domain">Search domain</string>
+    <string name="settings_mtu">Tunnel MTU</string>
+    <string name="settings_mssfix">mssfix</string>
+    <string name="settings_lzo">LZO compression</string>
+    <string name="settings_persist_tun">Persistent tunnel</string>
+    <string name="settings_persist_tun_desc">Block traffic while reconnecting</string>
+    <!-- WireGuard -->
+    <string name="wg_invalid_config">That is not a valid WireGuard configuration</string>
+    <string name="wg_settings_title">WireGuard profile</string>
+    <string name="wg_section_summary">Summary</string>
+    <string name="wg_section_config">Configuration file</string>
+    <string name="wg_label_endpoint">Endpoint</string>
+    <string name="wg_label_addresses">Addresses</string>
+    <string name="wg_label_allowed_ips">Allowed IPs</string>
+    <string name="wg_label_dns">DNS servers</string>
+    <string name="wg_label_mtu">MTU</string>
+    <string name="wg_label_keepalive">Persistent keepalive</string>
+    <string name="wg_label_public_key">Public key</string>
+    <string name="wg_config_hint">Edit the wg-quick file directly. It is validated when you save, so an invalid change is rejected rather than stored.</string>
+    <string name="wg_section_interface">Interface</string>
+    <string name="wg_section_peer">Peer</string>
+    <string name="wg_label_private_key">Private key</string>
+    <string name="wg_label_preshared_key">Preshared key (optional)</string>
+    <string name="wg_edit_raw">Edit raw config file</string>
+    <string name="wg_edit_structured">Back to structured editor</string>
+    <!-- WireGuard notification -->
+    <string name="notification_title_wg">%s - Connected</string>
+    <string name="notification_channel_wg">WireGuard connection</string>
+    <string name="notification_channel_xray">Xray connection</string>
+    <!-- Xray -->
+    <string name="settings_section_encryption">Encryption</string>
+    <string name="settings_cipher">Cipher</string>
+    <string name="settings_data_ciphers">Data ciphers (optional)</string>
+    <string name="settings_auth_digest">Auth digest</string>
+    <string name="settings_section_tls">TLS</string>
+    <string name="settings_tls_auth_direction">TLS auth/crypt mode</string>
+    <string name="settings_check_remote_cn">Verify server certificate CN</string>
+    <string name="settings_remote_cn">Expected server CN</string>
+    <string name="settings_expect_tls_cert">Require TLS certificate</string>
+    <string name="settings_section_advanced">Advanced</string>
+    <string name="settings_allow_local_lan">Allow local network access</string>
+    <string name="settings_block_unused_af">Block unused address families</string>
+    <string name="settings_use_custom_config">Custom config options</string>
+    <string name="settings_custom_options">Extra OpenVPN directives, one per line</string>
+    <string name="xray_invalid_link">That is not a valid Xray share link</string>
+    <string name="xray_settings_title">Xray profile</string>
+    <string name="xray_label_protocol">Protocol</string>
+    <string name="xray_label_transport">Transport</string>
+    <string name="xray_label_security">Security</string>
+    <string name="xray_label_sni">SNI</string>
+    <string name="xray_link_hint">Edit the share link directly. It is validated when you save, so an invalid change is rejected rather than stored.</string>
+    <string name="xray_section_link">Share link</string>
+    <string name="xray_section_connection">Connection</string>
+    <string name="xray_section_transport">Transport</string>
+    <string name="xray_section_security">Security</string>
+    <string name="xray_edit_raw">Edit raw share link</string>
+    <string name="xray_edit_structured">Back to structured editor</string>
+    <!-- Add profile dialog -->
+    <string name="add_title">Add a profile</string>
+    <string name="add_paste_hint">Paste a vless:// vmess:// trojan:// ss:// link</string>
+    <string name="add_paste">Add link</string>
+    <string name="add_from_file">Import .ovpn / .conf file</string>
+    <!-- Filter chips -->
+    <string name="filter_all">*all*</string>
+    <string name="filter_type">Type: %1$s</string>
+    <string name="filter_sort">Sort: %1$s</string>
+    <string name="filter_group">Group: %1$s</string>
+    <string name="action_open_group">Show servers</string>
+    <!-- Server test -->
+    <string name="action_test_all">Test all</string>
+    <string name="action_test">Test</string>
+    <string name="action_test_speed">Speed test</string>
+    <string name="speed_testing">Measuring download speed…</string>
+    <string name="speed_result">Download speed: %1$s</string>
+    <string name="speed_failed">Speed test failed</string>
+    <!-- Subscriptions -->
+    <string name="subs_title">Subscriptions</string>
+    <string name="action_subscriptions">Subscriptions</string>
+    <string name="sub_add">Add subscription</string>
+    <string name="sub_name">Name (optional)</string>
+    <string name="sub_url">Subscription URL</string>
+    <string name="sub_invalid_url">That is not a valid http(s) URL</string>
+    <string name="sub_updating">Updating “%1$s”…</string>
+    <string name="sub_updated">%1$d servers imported</string>
+    <string name="sub_never_updated">Never updated</string>
+    <string name="sub_count">%1$d servers</string>
+    <string name="sub_empty">No subscriptions yet. Add a URL and its servers appear in the list.</string>
+    <string name="action_update">Update</string>
+    <!-- QR -->
+    <string name="action_scan_qr">Scan QR code</string>
+    <string name="action_show_qr">Show QR code</string>
+    <string name="qr_title">Scan on another device</string>
+    <string name="qr_not_shareable">Only Xray profiles can be shared as a QR code</string>
+    <string name="qr_encode_failed">This link is too long to encode as a QR code</string>
+    <string name="qr_camera_denied">Camera permission is needed to scan a QR code</string>
+    <string name="qr_prompt">Point the camera at a share-link QR code</string>
+    <string name="no_match_title">No servers match this filter</string>
+    <string name="no_match_body">Clear the filter to see every server again.</string>
+    <string name="action_clear_filter">Clear filter</string>
+    <string name="test_disconnect_first">Disconnect first — testing needs the tunnel to be off</string>
+    <!-- Diagnostic log -->
+    <string name="log_title">Diagnostic log</string>
+    <string name="action_log">Diagnostic log</string>
+    <string name="log_hint">If something breaks, open this screen and send the log. It survives crashes, including ones that close the app instantly.</string>
+    <string name="log_empty">Nothing logged yet.</string>
+    <string name="log_share">Share log</string>
+    <string name="log_copied">Log copied to clipboard</string>
+    <string name="config_copied">Config copied — paste it into the other client to import</string>
+    <string name="log_cleared">Log cleared</string>
+    <string name="log_share_failed">Could not prepare the log for sharing</string>
+    <string name="log_share_title">SwiftVPN log</string>
+    <string name="selected_count">%1$d selected</string>
+    <string name="action_select_all">Select all</string>
+    <string name="action_delete_selected">Delete selected</string>
+    <string name="delete_title">Delete profiles?</string>
+    <string name="delete_body_one">“%1$s” will be removed from this device. This cannot be undone.</string>
+    <string name="delete_body_many">%1$d profiles will be removed from this device. This cannot be undone.</string>
+    <string name="delete_live_warning">One of these is connected — the tunnel will be stopped first.</string>
+    <string name="add_zip">Import .zip archive</string>
+    <string name="import_zip_success">%1$d profiles imported</string>
+    <string name="import_zip_empty">No usable configs found in that archive</string>
+    <string name="action_backup">Back up all</string>
+    <string name="backup_share_title">SwiftVPN backup</string>
+    <string name="backup_export_failed">Nothing to back up, or export failed</string>
+    <string name="action_confirm_delete">Delete</string>
+    <string name="import_batch_success">%1$d configs imported</string>
+    <string name="ikev2_settings_title">IKEv2 profile</string>
+    <string name="ikev2_type">VPN type</string>
+    <string name="ikev2_section_auth">Authentication</string>
+    <string name="ikev2_ca_cert">CA certificate</string>
+    <string name="ikev2_ca_default">System default</string>
+    <string name="ikev2_import_ca">Import CA certificate from file…</string>
+    <string name="ikev2_ca_imported">CA certificate imported</string>
+    <string name="ikev2_ca_import_failed">Could not read that certificate file</string>
+    <string name="ikev2_client_cert">Client certificate</string>
+    <string name="ikev2_choose_cert">Choose from system certificates…</string>
+    <string name="ikev2_no_client_cert">None selected</string>
+    <string name="ikev2_local_id">Local identity (optional)</string>
+    <string name="ikev2_remote_id">Remote identity (optional)</string>
+    <string name="ikev2_nat_keepalive">NAT keepalive seconds</string>
+    <string name="ikev2_ike_proposal">IKE proposal (optional)</string>
+    <string name="ikev2_esp_proposal">ESP proposal (optional)</string>
+    <string name="ikev2_dns">DNS servers (optional)</string>
+    <string name="ikev2_section_flags">Connection flags</string>
+    <string name="ikev2_suppress_cert_reqs">Suppress certificate requests</string>
+    <string name="ikev2_disable_crl">Disable CRL checks</string>
+    <string name="ikev2_disable_ocsp">Disable OCSP checks</string>
+    <string name="ikev2_strict_revocation">Strict revocation checking</string>
+    <string name="ikev2_rsa_pss">RSA-PSS signatures</string>
+    <string name="ikev2_ipv6">IPv6 transport</string>
+    <string name="add_ikev2">Add IKEv2 server manually</string>
+    <string name="settings_password_label">Password</string>
+</resources>

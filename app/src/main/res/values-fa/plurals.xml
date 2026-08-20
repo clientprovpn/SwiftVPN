@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Persian has no separate singular verb form here, so both quantities read
+      identically. Using a plurals resource rather than one format string keeps
+      the English side correct without forcing an unnatural Persian phrasing.
+    -->
+    <plurals name="deleted_count">
+        <item quantity="one">%1$d پروفایل حذف شد</item>
+        <item quantity="other">%1$d پروفایل حذف شد</item>
+    </plurals>
+</resources>

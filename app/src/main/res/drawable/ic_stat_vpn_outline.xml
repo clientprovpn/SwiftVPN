@@ -1,0 +1,39 @@
+<!--
+  Notification small icon — CONNECTING, no reply from the server yet.
+
+  Overrides the upstream drawable of the same name. The full orbit is already
+  drawn (the tunnel is being established) but held at low opacity: the shape
+  never changes as the handshake progresses, only its weight fills in. That
+  reads as progress without asking the eye to decode a new silhouette at
+  status-bar size.
+
+  Progression: 0.40 (this) -> 0.70 (ic_stat_vpn_empty_halo) -> 1.0 (ic_stat_vpn).
+
+  fillAlpha and strokeAlpha are separate attributes, so the nucleus needs its own
+  — a single alpha on the <vector> would not survive the notification tint.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <path
+        android:fillColor="@android:color/white"
+        android:fillAlpha="0.4"
+        android:pathData="M12,9 C13.657,9 15,10.343 15,12 C15,13.657 13.657,15 12,15 C10.343,15 9,13.657 9,12 C9,10.343 10.343,9 12,9 Z" />
+
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeAlpha="0.4"
+        android:strokeWidth="2.7"
+        android:strokeLineCap="round"
+        android:pathData="M12,3.3 C16.805,3.3 20.7,7.195 20.7,12" />
+
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeAlpha="0.4"
+        android:strokeWidth="2.7"
+        android:strokeLineCap="round"
+        android:pathData="M12,20.7 C7.195,20.7 3.3,16.805 3.3,12" />
+</vector>

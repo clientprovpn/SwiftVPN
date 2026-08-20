@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Exposes ONLY the export folder inside the app's cache, which is where the
+  diagnostic log is written for sharing. Nothing else in the app's storage is
+  reachable through the provider: profiles, keys and configs stay private.
+-->
+<paths>
+    <cache-path name="log_export" path="export/" />
+</paths>

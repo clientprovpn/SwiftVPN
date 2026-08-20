@@ -1,0 +1,48 @@
+<!--
+  Quick Settings tile icon — CONNECTED.  Design "8a Orbit classic".
+
+  A solid nucleus with two opposing arcs sweeping around it: the tunnel is up
+  and traffic is circulating. Reads as a network/relay mark rather than a
+  direction, which is what a VPN actually is.
+
+  Android renders tile icons MONOCHROME — the system replaces the colour and
+  inverts it on state change — so the on/off pair must differ by SILHOUETTE, not
+  by tint. Here: solid core + full 90-degree arcs (on) vs. hollow core +
+  40-degree stubs (off). Both survive down to 20 px; verified by rendering at
+  true size before committing.
+
+  GEOMETRY — arcs are cubic Beziers, not SVG 'A' commands. Android's PathParser
+  does support arcTo, but the elliptical-arc endpoint parameterisation is the one
+  corner of pathData with a history of tooling disagreement, and for a 90-degree
+  circular arc the cubic with k = 4/3*tan(45/2) = 0.5522847 is accurate to about
+  0.02% of the radius — visually exact and portable. Every number below is
+  computed about centre (12,12), r = 8.7 for the orbit and r = 2.8 for the core.
+
+  VectorDrawable has no <circle> element, so the nucleus is a closed path of
+  four quarter-arcs.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Nucleus: filled circle, r = 2.8 -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M12,9.2 C13.546,9.2 14.8,10.454 14.8,12 C14.8,13.546 13.546,14.8 12,14.8 C10.454,14.8 9.2,13.546 9.2,12 C9.2,10.454 10.454,9.2 12,9.2 Z" />
+
+    <!-- Orbit, top -> right (90deg to 0deg), r = 8.7 -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2.4"
+        android:strokeLineCap="round"
+        android:pathData="M12,3.3 C16.805,3.3 20.7,7.195 20.7,12" />
+
+    <!-- Orbit, bottom -> left (270deg to 180deg) — rotationally symmetric -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2.4"
+        android:strokeLineCap="round"
+        android:pathData="M12,20.7 C7.195,20.7 3.3,16.805 3.3,12" />
+</vector>
