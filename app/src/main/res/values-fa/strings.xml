@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">سوئیفت‌وی‌پی‌ان</string>
+
+    <!-- Quick Settings tile -->
+    <string name="tile_label">وی‌پی‌ان</string>
+    <string name="tile_pick_profile">یک پروفایل انتخاب کنید</string>
+
+    <!-- Connection states -->
+    <string name="state_connected">متصل</string>
+    <string name="state_connecting">در حال اتصال…</string>
+    <string name="state_disconnected">قطع</string>
+    <string name="state_paused">موقتاً متوقف</string>
+    <string name="state_auth_failed">احراز هویت ناموفق</string>
+    <string name="state_no_network">بدون اینترنت</string>
+    <string name="state_waiting_input">در انتظار ورودی</string>
+
+    <!-- Actions -->
+    <string name="action_connect">اتصال</string>
+    <string name="action_disconnect">قطع اتصال</string>
+    <string name="action_import">افزودن پروفایل</string>
+    <string name="action_delete">حذف</string>
+    <string name="action_back">بازگشت</string>
+    <string name="action_theme">پوسته</string>
+    <string name="action_menu">منو</string>
+    <string name="action_theme_light">تم روشن</string>
+    <string name="action_theme_dark">تم تیره</string>
+    <string name="action_sort">مرتب‌سازی</string>
+    <string name="action_favourite">علاقه‌مندی</string>
+    <string name="action_clear_log">پاک کردن گزارش</string>
+
+    <!-- Sorting -->
+    <string name="sort_name">نام</string>
+    <string name="sort_recent">آخرین استفاده</string>
+    <string name="sort_favourite">علاقه‌مندی‌ها اول</string>
+
+    <!-- Tabs -->
+    <string name="tab_status">وضعیت</string>
+    <string name="tab_routing">مسیریابی</string>
+    <string name="tab_log">گزارش</string>
+    <string name="tab_usage">مصرف</string>
+
+    <!-- Status / graph labels -->
+    <string name="label_proxy">پراکسی</string>
+    <string name="label_remote_server">سرور</string>
+    <string name="label_download">دریافت</string>
+    <string name="label_upload">ارسال</string>
+    <string name="label_local_ipv4">آی‌پی محلی v4</string>
+    <string name="label_local_ipv6">آی‌پی محلی v6</string>
+    <string name="label_mtu">MTU</string>
+    <string name="label_dns">سرورهای DNS</string>
+    <string name="label_routes">مسیرها</string>
+    <string name="label_downloaded">مجموع دریافت</string>
+    <string name="label_uploaded">مجموع ارسال</string>
+    <string name="label_uptime">مدت اتصال</string>
+    <string name="label_peak_down">اوج دریافت</string>
+    <string name="label_peak_up">اوج ارسال</string>
+    <string name="usage_history">سوابق مصرف</string>
+    <string name="usage_today">امروز</string>
+    <string name="usage_this_week">این هفته</string>
+    <string name="usage_this_month">این ماه</string>
+
+    <!-- Import -->
+    <string name="import_success">«%1$s» افزوده شد</string>
+    <string name="import_failed">این فایل به‌عنوان پروفایل OpenVPN یا وایرگارد خوانده نشد</string>
+
+    <!-- Empty state -->
+    <string name="no_profiles_title">هنوز پروفایلی ندارید</string>
+    <string name="no_profiles_body">یک فایل ovpn. از حافظه دستگاه اضافه کنید تا شروع کنیم. همه‌چیز روی گوشی خودتان می‌ماند.</string>
+    <!-- Credentials dialog -->
+    <string name="credentials_title">ورود</string>
+    <string name="credentials_body">«%1$s» به نام کاربری و رمز عبور نیاز دارد.</string>
+    <string name="label_username">نام کاربری</string>
+    <string name="label_password">رمز عبور</string>
+    <string name="remember_credentials">ذخیره روی این دستگاه</string>
+    <string name="action_show_password">نمایش رمز</string>
+    <string name="action_hide_password">پنهان کردن رمز</string>
+    <string name="action_cancel">انصراف</string>
+    <!-- Crash report -->
+    <string name="crash_title">اپ به‌طور غیرمنتظره بسته شد</string>
+    <string name="crash_body">یک گزارش ذخیره شد. می‌توانید کپی کنید و بفرستید، یا رد کنید.</string>
+    <string name="action_copy">کپی</string>
+    <string name="action_dismiss">رد کردن</string>
+    <string name="crash_copied">گزارش کپی شد</string>
+    <!-- Profile settings -->
+    <string name="settings_title">تنظیمات</string>
+    <string name="action_save">ذخیره</string>
+    <string name="action_settings">ویرایش تنظیمات</string>
+    <string name="settings_saved">تنظیمات ذخیره شد</string>
+    <string name="settings_section_server">سرور</string>
+    <string name="settings_section_auth">احراز هویت</string>
+    <string name="settings_section_routing">مسیریابی</string>
+    <string name="settings_section_dns">DNS</string>
+    <string name="settings_section_tuning">تنظیم دقیق</string>
+    <string name="settings_name">نام پروفایل</string>
+    <string name="settings_server">آدرس سرور</string>
+    <string name="settings_port">پورت</string>
+    <string name="settings_protocol">پروتکل</string>
+    <string name="settings_timeout">مهلت اتصال (ثانیه)</string>
+    <string name="settings_password_saved">رمز عبور برای این پروفایل ذخیره شده است.</string>
+    <string name="settings_password_prompt">هنگام اتصال رمز عبور پرسیده می‌شود.</string>
+    <string name="settings_use_pull">دریافت تنظیمات از سرور</string>
+    <string name="settings_use_pull_desc">مسیرها، DNS و آدرس‌ها را سرور تعیین کند</string>
+    <string name="settings_default_route">عبور تمام ترافیک IPv4</string>
+    <string name="settings_default_route6">عبور تمام ترافیک IPv6</string>
+    <string name="settings_custom_routes">مسیرهای دلخواه</string>
+    <string name="settings_override_dns">جایگزینی سرورهای DNS</string>
+    <string name="settings_dns1">DNS اول</string>
+    <string name="settings_dns2">DNS دوم</string>
+    <string name="settings_search_domain">دامنه جستجو</string>
+    <string name="settings_mtu">MTU تونل</string>
+    <string name="settings_mssfix">mssfix</string>
+    <string name="settings_lzo">فشرده‌سازی LZO</string>
+    <string name="settings_persist_tun">تونل پایدار</string>
+    <string name="settings_persist_tun_desc">مسدود کردن ترافیک هنگام اتصال مجدد</string>
+    <!-- WireGuard -->
+    <string name="wg_invalid_config">این یک تنظیمات معتبر وایرگارد نیست</string>
+    <string name="wg_settings_title">پروفایل وایرگارد</string>
+    <string name="wg_section_summary">خلاصه</string>
+    <string name="wg_section_config">فایل تنظیمات</string>
+    <string name="wg_label_endpoint">سرور</string>
+    <string name="wg_label_addresses">آدرس‌ها</string>
+    <string name="wg_label_allowed_ips">آی‌پی‌های مجاز</string>
+    <string name="wg_label_dns">سرورهای DNS</string>
+    <string name="wg_label_mtu">MTU</string>
+    <string name="wg_label_keepalive">کیپ‌الایو پایدار</string>
+    <string name="wg_label_public_key">کلید عمومی</string>
+    <string name="wg_config_hint">فایل wg-quick را مستقیم ویرایش کنید. هنگام ذخیره اعتبارسنجی می‌شود، پس تغییر نامعتبر ذخیره نمی‌شود و رد می‌شود.</string>
+    <string name="wg_section_interface">رابط (Interface)</string>
+    <string name="wg_section_peer">همتا (Peer)</string>
+    <string name="wg_label_private_key">کلید خصوصی</string>
+    <string name="wg_label_preshared_key">کلید پیش‌مشترک (اختیاری)</string>
+    <string name="wg_edit_raw">ویرایش مستقیم فایل تنظیمات</string>
+    <string name="wg_edit_structured">بازگشت به ویرایشگر ساخت‌یافته</string>
+    <!-- WireGuard notification -->
+    <string name="notification_title_wg">%s - متصل</string>
+    <string name="notification_channel_wg">اتصال وایرگارد</string>
+    <string name="notification_channel_xray">اتصال اکس‌ری</string>
+    <!-- Xray -->
+    <string name="settings_section_encryption">رمزنگاری</string>
+    <string name="settings_cipher">رمز (Cipher)</string>
+    <string name="settings_data_ciphers">رمزهای داده (اختیاری)</string>
+    <string name="settings_auth_digest">هش احراز (Auth digest)</string>
+    <string name="settings_section_tls">TLS</string>
+    <string name="settings_tls_auth_direction">حالت tls-auth/crypt</string>
+    <string name="settings_check_remote_cn">بررسی CN گواهی سرور</string>
+    <string name="settings_remote_cn">CN مورد انتظار سرور</string>
+    <string name="settings_expect_tls_cert">الزام گواهی TLS</string>
+    <string name="settings_section_advanced">پیشرفته</string>
+    <string name="settings_allow_local_lan">دسترسی به شبکه محلی</string>
+    <string name="settings_block_unused_af">مسدود کردن خانواده‌های آدرس بلااستفاده</string>
+    <string name="settings_use_custom_config">گزینه‌های سفارشی کانفیگ</string>
+    <string name="settings_custom_options">دستورهای اضافه OpenVPN، هر خط یک مورد</string>
+    <string name="xray_invalid_link">این یک لینک اشتراک معتبر اکس‌ری نیست</string>
+    <string name="xray_settings_title">پروفایل اکس‌ری</string>
+    <string name="xray_label_protocol">پروتکل</string>
+    <string name="xray_label_transport">انتقال</string>
+    <string name="xray_label_security">امنیت</string>
+    <string name="xray_label_sni">SNI</string>
+    <string name="xray_link_hint">لینک اشتراک را مستقیم ویرایش کنید. هنگام ذخیره اعتبارسنجی می‌شود، پس تغییر نامعتبر ذخیره نمی‌شود و رد می‌شود.</string>
+    <string name="xray_section_link">لینک اشتراک</string>
+    <string name="xray_section_connection">اتصال</string>
+    <string name="xray_section_transport">انتقال (Transport)</string>
+    <string name="xray_section_security">امنیت</string>
+    <string name="xray_edit_raw">ویرایش مستقیم لینک اشتراک</string>
+    <string name="xray_edit_structured">بازگشت به ویرایشگر ساخت‌یافته</string>
+    <!-- Add profile dialog -->
+    <string name="add_title">افزودن پروفایل</string>
+    <string name="add_paste_hint">یک لینک vless:// vmess:// trojan:// ss:// را بچسبانید</string>
+    <string name="add_paste">افزودن لینک</string>
+    <string name="add_from_file">افزودن از فایل</string>
+    <string name="add_from_clipboard">افزودن از کلیپ‌بورد</string>
+    <string name="add_clipboard_empty">کلیپ‌بورد کانفیگی ندارد</string>
+    <!-- Filter chips -->
+    <string name="filter_all">همه</string>
+    <string name="filter_type">نوع: %1$s</string>
+    <string name="filter_sort">ترتیب: %1$s</string>
+    <string name="filter_group">گروه: %1$s</string>
+    <string name="action_open_group">نمایش سرورها</string>
+    <!-- Server test -->
+    <string name="action_test_all">تست همه</string>
+    <string name="action_test">تست</string>
+    <string name="action_test_speed">تست سرعت</string>
+    <string name="speed_testing">در حال سنجش سرعت دانلود…</string>
+    <string name="speed_result">سرعت دانلود: %1$s</string>
+    <string name="speed_failed">تست سرعت ناموفق بود</string>
+    <!-- Subscriptions -->
+    <string name="subs_title">سابسکریپشن‌ها</string>
+    <string name="action_subscriptions">سابسکریپشن‌ها</string>
+    <string name="sub_add">افزودن سابسکریپشن</string>
+    <string name="sub_name">نام (اختیاری)</string>
+    <string name="sub_url">آدرس سابسکریپشن</string>
+    <string name="sub_invalid_url">این یک آدرس http(s) معتبر نیست</string>
+    <string name="sub_updating">در حال به‌روزرسانی «%1$s»…</string>
+    <string name="sub_updated">%1$d سرور افزوده شد</string>
+    <string name="sub_never_updated">هنوز به‌روز نشده</string>
+    <string name="sub_count">%1$d سرور</string>
+    <string name="sub_empty">هنوز سابسکریپشنی ندارید. یک آدرس اضافه کنید تا سرورهایش در لیست بیایند.</string>
+    <string name="action_update">به‌روزرسانی</string>
+    <!-- QR -->
+    <string name="action_scan_qr">اسکن کیوآر کد</string>
+    <string name="action_show_qr">نمایش کیوآر کد</string>
+    <string name="qr_title">با گوشی دیگر اسکن کنید</string>
+    <string name="qr_not_shareable">فقط پروفایل‌های اکس‌ری را می‌توان با کیوآر به اشتراک گذاشت</string>
+    <string name="qr_encode_failed">این لینک برای کیوآر کد بیش از حد بلند است</string>
+    <string name="qr_camera_denied">برای اسکن کیوآر کد به دسترسی دوربین نیاز است</string>
+    <string name="qr_prompt">دوربین را روی کیوآر کدِ لینک اشتراک بگیرید</string>
+    <string name="no_match_title">سروری با این فیلتر پیدا نشد</string>
+    <string name="no_match_body">فیلتر را پاک کنید تا همه‌ی سرورها دوباره دیده شوند.</string>
+    <string name="action_clear_filter">پاک کردن فیلتر</string>
+    <string name="test_disconnect_first">اول قطع کنید — تست وقتی تونل خاموش باشد انجام می‌شود</string>
+    <!-- Diagnostic log -->
+    <string name="log_title">گزارش عیب‌یابی</string>
+    <string name="action_log">گزارش عیب‌یابی</string>
+    <string name="log_hint">اگر مشکلی پیش آمد، این صفحه را باز کنید و گزارش را بفرستید. این گزارش حتی با کرش‌هایی که اپ را فوری می‌بندند هم از بین نمی‌رود.</string>
+    <string name="log_empty">هنوز چیزی ثبت نشده.</string>
+    <string name="log_share">اشتراک‌گذاری گزارش</string>
+    <string name="log_copied">گزارش در کلیپ‌بورد کپی شد</string>
+    <string name="config_copied">کانفیگ کپی شد — در کلاینت دیگر پیست کنید تا اضافه شود</string>
+    <string name="log_cleared">گزارش پاک شد</string>
+    <string name="log_share_failed">آماده‌سازی گزارش برای اشتراک‌گذاری ناموفق بود</string>
+    <string name="log_share_title">گزارش سوئیفت‌وی‌پی‌ان</string>
+    <string name="selected_count">%1$d انتخاب‌شده</string>
+    <string name="action_select_all">انتخاب همه</string>
+    <string name="action_delete_selected">حذف انتخاب‌شده‌ها</string>
+    <string name="delete_title">پروفایل‌ها حذف شوند؟</string>
+    <string name="delete_body_one">«%1$s» از این دستگاه حذف می‌شود. این کار برگشت‌پذیر نیست.</string>
+    <string name="delete_body_many">%1$d پروفایل از این دستگاه حذف می‌شود. این کار برگشت‌پذیر نیست.</string>
+    <string name="delete_live_warning">یکی از این‌ها وصل است — اول تونل قطع می‌شود.</string>
+    <string name="add_zip">افزودن فایل zip.</string>
+    <string name="import_zip_success">%1$d پروفایل افزوده شد</string>
+    <string name="import_zip_empty">در این فایل zip کانفیگ قابل استفاده‌ای پیدا نشد</string>
+<string name="action_test_delay">تست تاخیر واقعی</string>
+        <string name="action_backup">پشتیبان‌گیری از همه</string>
+    <string name="backup_share_title">پشتیبان SwiftVPN</string>
+    <string name="backup_export_failed">چیزی برای پشتیبان‌گیری نیست یا خروجی ناموفق بود</string>
+    <string name="action_confirm_delete">حذف</string>
+    <string name="import_batch_success">%1$d کانفیگ افزوده شد</string>
+    <string name="ikev2_settings_title">پروفایل IKEv2</string>
+    <string name="ikev2_type">نوع VPN</string>
+    <string name="ikev2_section_auth">احراز هویت</string>
+    <string name="ikev2_ca_cert">گواهی CA</string>
+    <string name="ikev2_ca_default">پیش‌فرض سیستم</string>
+    <string name="ikev2_import_ca">ایمپورت گواهی CA از فایل…</string>
+    <string name="ikev2_ca_imported">گواهی CA ایمپورت شد</string>
+    <string name="ikev2_ca_import_failed">خواندن فایل گواهی ممکن نشد</string>
+    <string name="ikev2_client_cert">گواهی کلاینت</string>
+    <string name="ikev2_choose_cert">انتخاب از گواهی‌های سیستم…</string>
+    <string name="ikev2_no_client_cert">انتخاب نشده</string>
+    <string name="ikev2_local_id">شناسه محلی (اختیاری)</string>
+    <string name="ikev2_remote_id">شناسه ریموت (اختیاری)</string>
+    <string name="ikev2_nat_keepalive">فاصله NAT keepalive (ثانیه)</string>
+    <string name="ikev2_ike_proposal">پروپوزال IKE (اختیاری)</string>
+    <string name="ikev2_encryption">رمزنگاری داده</string>
+    <string name="ikev2_eap_method">متد احراز هویت EAP</string>
+    <string name="ikev2_enc_auto">خودکار</string>
+    <string name="ikev2_esp_proposal">پروپوزال ESP (اختیاری)</string>
+    <string name="ikev2_dns">سرورهای DNS (اختیاری)</string>
+    <string name="ikev2_section_flags">پرچم‌های اتصال</string>
+    <string name="ikev2_suppress_cert_reqs">عدم ارسال درخواست گواهی</string>
+    <string name="ikev2_disable_crl">غیرفعال کردن بررسی CRL</string>
+    <string name="ikev2_disable_ocsp">غیرفعال کردن بررسی OCSP</string>
+    <string name="ikev2_strict_revocation">بررسی سخت‌گیرانه ابطال گواهی</string>
+    <string name="ikev2_rsa_pss">امضای RSA-PSS</string>
+    <string name="ikev2_ipv6">انتقال IPv6</string>
+    <string name="add_ikev2">افزودن سرور IKEv2 به‌صورت دستی</string>
+    <string name="add_warp">WARP (کلادفلر)</string>
+    <string name="warp_generating">در حال ثبت دستگاه WARP در کلادفلر…</string>
+    <string name="warp_failed">ثبت WARP ناموفق بود — اتصال را بررسی کنید و دوباره تلاش کنید</string>
+    <string name="warp_created">پروفایل WARP ساخته شد</string>
+    <string name="add_manual">ساخت دستی</string>
+    <string name="add_custom_json">کانفیگ دلخواه (JSON)</string>
+    <string name="settings_password_label">رمز عبور</string>
+</resources>

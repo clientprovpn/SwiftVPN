@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color
+        name="error_text">#D9192C</color>
+    <color
+        name="warning_text">#FF9909</color>
+    <color
+        name="success_text">#99CC00</color>
+</resources>

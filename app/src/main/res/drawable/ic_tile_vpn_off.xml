@@ -1,0 +1,42 @@
+<!--
+  Quick Settings tile icon — DISCONNECTED.  Sibling of ic_tile_vpn (8a Orbit).
+
+  Same construction, two things withdrawn:
+    * the nucleus is HOLLOW (stroked, not filled) — nothing is running
+    * the orbits are cut back from 90-degree sweeps to 40-degree stubs, held at
+      the same angular position
+
+  Both cues are silhouette changes, which is what the monochrome tint leaves
+  intact. Keeping the stubs on the original arc path is what makes the pair read
+  as one family rather than two icons: the OFF state looks like the ON state with
+  the motion drained out of it.
+
+  Stub endpoints are the true circle points at 45deg/5deg (and 225deg/185deg),
+  r = 8.7, with cubic control points from k = 4/3*tan(40/4) = 0.2351.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Nucleus: hollow circle, r = 2.8, thinner stroke than the orbit -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="1.9"
+        android:pathData="M12,9.2 C13.546,9.2 14.8,10.454 14.8,12 C14.8,13.546 13.546,14.8 12,14.8 C10.454,14.8 9.2,13.546 9.2,12 C9.2,10.454 10.454,9.2 12,9.2 Z" />
+
+    <!-- Orbit stub, upper right (45deg to 5deg) -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2.4"
+        android:strokeLineCap="round"
+        android:pathData="M18.152,5.848 C19.598,7.294 20.489,9.204 20.667,11.242" />
+
+    <!-- Orbit stub, lower left (225deg to 185deg) -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2.4"
+        android:strokeLineCap="round"
+        android:pathData="M5.848,18.152 C4.402,16.706 3.511,14.796 3.333,12.758" />
+</vector>

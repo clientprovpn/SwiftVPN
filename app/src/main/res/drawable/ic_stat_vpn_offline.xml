@@ -1,0 +1,36 @@
+<!--
+  Notification small icon — DISCONNECTED / auth failed / no network.
+
+  Overrides the upstream ics-openvpn drawable of the same name (app resources win
+  over library resources) so the status bar never switches between two unrelated
+  marks mid-connection.
+
+  Same withdrawal as the tile's OFF state — hollow nucleus, arcs cut to stubs —
+  at status-bar weight. See ic_tile_vpn_off for the geometry.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Nucleus: hollow circle, r = 3.0 -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2.1"
+        android:pathData="M12,9 C13.657,9 15,10.343 15,12 C15,13.657 13.657,15 12,15 C10.343,15 9,13.657 9,12 C9,10.343 10.343,9 12,9 Z" />
+
+    <!-- Orbit stub, upper right -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2.7"
+        android:strokeLineCap="round"
+        android:pathData="M18.152,5.848 C19.598,7.294 20.489,9.204 20.667,11.242" />
+
+    <!-- Orbit stub, lower left -->
+    <path
+        android:strokeColor="@android:color/white"
+        android:strokeWidth="2.7"
+        android:strokeLineCap="round"
+        android:pathData="M5.848,18.152 C4.402,16.706 3.511,14.796 3.333,12.758" />
+</vector>

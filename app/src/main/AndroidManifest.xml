@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      INTERNET, ACCESS_NETWORK_STATE, FOREGROUND_SERVICE,
+      FOREGROUND_SERVICE_SPECIAL_USE and POST_NOTIFICATIONS are declared by the
+      engine module and merged in automatically.
+
+      The engine also declares QUERY_ALL_PACKAGES for its per-app VPN feature.
+      We do not offer split tunnelling, so it is removed here to keep the
+      permission surface minimal.
+    -->
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:node="remove" />
+
+    <!-- Not needed: we read .ovpn files through the document picker instead. -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        tools:node="remove" />
+
+    <!--
+      CAMERA is used ONLY to scan a share-link QR code, and is requested at the
+      moment the user taps Scan — never at launch. It is the only dangerous
+      permission this app asks for.
+
+      The camera is declared not-required so the app still installs and runs on a
+      device without one; the scan action simply reports that it is unavailable.
+    -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--
+      VPN tunnel services are started with foregroundServiceType=systemExempted
+      (the same type husi/SFA-family clients use for their VpnService): unlike
+      specialUse it is exempt from the ~10s startForeground deadline, which is
+      what killed SingBoxVpnService with ForegroundServiceDidNotStartInTime-
+      Exception on slow devices while the Go core was still loading.
+    -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED" />
+
+    <!--
+      Asked once at first connect: without the exemption, aggressive OEM power
+      management suspends this app's network seconds after it backgrounds,
+      freezing a live tunnel. The standalone clients the user compares against
+      all hold this grant.
+    -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:name=".SwiftVpnApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SwiftVPN"
+        tools:replace="android:name,android:label,android:icon,android:roundIcon,android:theme">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:theme="@style/Theme.SwiftVPN">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--
+              Long-pressing our Quick Settings tile sends this action. Without a
+              handler Android falls back to the app's system settings page; with
+              it, a long-press opens the app itself, like other VPN clients.
+            -->
+            <intent-filter>
+                <action android:name="android.service.quicksettings.ACTION_QS_TILE_PREFERENCES" />
+                <!-- NO CATEGORY_DEFAULT here, on purpose: HyperOS resolves the
+                     long-press intent via PackageManager (no startActivity
+                     category injection), so the intent carries NO categories —
+                     and a filter that declares categories can never match an
+                     intent that has none. v2rayNG and Exclave both declare this
+                     filter with no category and their tiles open the app. -->
+            </intent-filter>
+
+            <!-- Let the user open a .ovpn file directly into this app. -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:mimeType="application/x-openvpn-profile" />
+                <data android:mimeType="application/ovpn" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+
+        <!--
+          REQUIRED, do not remove.
+
+          The engine builds a PendingIntent for its notification with a
+          hardcoded path:
+
+              OpenVPNService.getGraphPendingIntent()
+              new ComponentName(this, getPackageName() + ".activities.MainActivity")
+
+          which resolves to ir.swiftvpn.activities.MainActivity. That class
+          does not exist in this app, and constructing a PendingIntent for a
+          missing component throws — killing the :openvpn process the moment a
+          tunnel starts. This alias satisfies the engine's expectation and
+          points at our real Activity.
+        -->
+        <activity-alias
+            android:name=".activities.MainActivity"
+            android:exported="false"
+            android:targetActivity=".MainActivity" />
+
+        <!--
+          Same problem, second site: OpenVPNService line ~1479 builds
+          getPackageName() + ".activities.CredentialsPopup" when a server asks
+          for a challenge-response (CR_TEXT) credential. Aliased so that path
+          resolves instead of crashing.
+        -->
+        <activity-alias
+            android:name=".activities.CredentialsPopup"
+            android:exported="false"
+            android:targetActivity=".MainActivity" />
+
+        <!-- The Quick Settings tile: the reason this app exists. -->
+        <service
+            android:name=".tile.VpnTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_tile_vpn"
+            android:label="@string/tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.service.quicksettings.TOGGLEABLE_TILE"
+                android:value="true" />
+        </service>
+
+        <!--
+          Notification service for WIREGUARD ONLY.
+
+          For OpenVPN the engine's own OpenVPNService posts the ongoing
+          notification and calls startForeground itself, so nothing of ours is
+          involved — adding a second one there produced two notifications that
+          both reappeared when swiped away.
+
+          GoBackend, however, does neither: the shipped AAR references no
+          Notification API and never calls startForeground (verified by
+          disassembling the class files). So WireGuard tunnels came up with no
+          shade entry, no speedometer, and no foreground protection keeping the
+          process alive. This service supplies all three, and only runs while
+          WireGuard holds the tunnel.
+
+          foregroundServiceType matches the type the engine module already
+          declares, so the permission set does not grow.
+        -->
+        <service
+            android:name=".notification.WireGuardNotificationService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="vpn" />
+        </service>
+
+        <!--
+          Backs the Disconnect button on BOTH the WireGuard and Xray
+          notifications. It just calls VpnEngine.disconnect, which routes by the
+          active protocol, so one receiver serves both.
+        -->
+        <receiver
+            android:name=".notification.WireGuardDisconnectReceiver"
+            android:exported="false" />
+
+        <!--
+          Lets the user share the diagnostic log to any app (Telegram, mail, …).
+          Sharing a raw file:// URI throws FileUriExposedException on API 24+, so
+          the file has to go out as a content:// URI with a temporary grant.
+
+          The authority is namespaced under the package so it cannot collide with
+          another app's provider, and file_paths.xml exposes ONLY the export
+          folder — profiles and keys are not reachable through it.
+        -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!--
+          Our own VpnService for Xray.
+
+          Unlike OpenVPN (engine-owned, separate process) and WireGuard
+          (library-owned), Xray is a proxy, so WE create the TUN and hand its fd
+          to xray-core's gvisor stack. This service owns that fd, runs the core,
+          and hosts its own foreground notification + speedometer.
+
+          BIND_VPN_SERVICE + the android.net.VpnService intent filter are what
+          make it a system VPN. specialUse matches the rest of the app so no new
+          permission is pulled in.
+
+          process=":xray" is THE crash fix: libgojni (Xray) and libwg-go
+          (WireGuard) each embed a full Go runtime, and two Go runtimes in one
+          process corrupt each other's signal handling until the process dies
+          with a native SIGSEGV. OpenVPN already isolates itself in :openvpn
+          for its own reasons; Xray gets :xray, so no process ever hosts more
+          than one Go runtime. XrayTestService lives here too because the
+          server tester starts throwaway xray cores.
+        -->
+        <service
+            android:name=".xray.XrayVpnService"
+            android:exported="false"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:process=":xray"
+            android:foregroundServiceType="systemExempted">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+
+        <!--
+          Measurement endpoint (latency / probe / speed) for Xray profiles.
+          Bound from the UI process via XrayRemote; runs the throwaway cores
+          next to the tunnel service, inside the single-Go-runtime :xray
+          process.
+        -->
+        <service
+            android:name=".xray.XrayTestService"
+            android:exported="false"
+            android:process=":xray" />
+
+
+    </application>
+
+</manifest>

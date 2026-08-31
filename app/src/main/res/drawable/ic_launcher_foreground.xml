@@ -1,0 +1,21 @@
+<!--
+  Adaptive launcher foreground — the ORIGINAL shield-and-check mark, restored at
+  the user's request.
+
+  Deliberately different from the tile/notification chevron: the launcher icon is
+  seen large, in colour, on a busy home screen, where a filled shield reads as
+  "protection" instantly. The tile icon is seen tiny and monochrome, where a
+  stroked chevron survives better. Two marks, each fit for its own context.
+
+  Scaled to sit inside the adaptive icon's safe zone — the outer ~18% of the
+  108dp canvas can be masked by the launcher.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <group android:scaleX="2.2" android:scaleY="2.2"
+           android:translateX="27" android:translateY="27">
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M12,1L3,5v6c0,5.55 3.84,10.74 9,12 5.16,-1.26 9,-6.45 9,-12V5L12,1zM10.94,15.54l-2.83,-2.83 1.41,-1.41 1.41,1.41 3.54,-3.54 1.41,1.41 -4.95,4.95z" />
+    </group>
+</vector>
